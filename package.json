@@ -1,0 +1,68 @@
+{
+  "name": "duty-schedule",
+  "version": "0.0.4",
+  "author": "qwqcode <1149527164@qq.com>",
+  "description": "A duty schedule.",
+  "license": "CC-BY-4.0",
+  "scripts": {
+    "dev": "electron-webpack dev",
+    "compile": "electron-webpack",
+    "build:win": "yarn dist --ia32",
+    "dist": "yarn compile && electron-builder",
+    "dist:dir": "yarn dist --dir -c.compression=store -c.mac.identity=null"
+  },
+  "build": {
+    "productName": "值日任务表",
+    "appId": "com.qwqaq.duty-schedule",
+    "directories": {
+      "output": "build"
+    },
+    "files": [
+      "dist/**/*"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 150,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "icon": "src/icons/icon.icns"
+    },
+    "win": {
+      "icon": "src/icons/icon.ico"
+    },
+    "linux": {
+      "icon": "src/icons"
+    }
+  },
+  "dependencies": {
+    "@types/react": "^16.8.18",
+    "@types/react-dom": "^16.8.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "source-map-support": "^0.5.10"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.0.0",
+    "electron": "4.0.1",
+    "electron-builder": "^20.40.2",
+    "electron-devtools-installer": "^2.2.4",
+    "electron-react-devtools": "^0.5.3",
+    "electron-webpack": "^2.6.2",
+    "electron-webpack-ts": "^3.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "typescript": "^3.4.5",
+    "webpack": "4.28.4"
+  }
+}
